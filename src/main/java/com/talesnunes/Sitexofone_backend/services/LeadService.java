@@ -4,6 +4,7 @@ import com.talesnunes.Sitexofone_backend.dto.LeadRequestDTO;
 import com.talesnunes.Sitexofone_backend.dto.LeadResponseDTO;
 import com.talesnunes.Sitexofone_backend.entities.Lead;
 import com.talesnunes.Sitexofone_backend.enums.Status;
+import com.talesnunes.Sitexofone_backend.exceptions.ResourceNotFoundException;
 import com.talesnunes.Sitexofone_backend.repositories.LeadRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class LeadService {
     @Transactional(readOnly = true)
     public LeadResponseDTO findById(Long id) {
         Lead lead = leadRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Lead com ID " + id + " não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Lead com ID " + id + " não encontrado"));
         return new LeadResponseDTO(lead);
     }
 
@@ -54,7 +55,7 @@ public class LeadService {
     @Transactional
     public LeadResponseDTO update(Long id, LeadRequestDTO dto) {
         Lead lead = leadRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Lead com ID " + id + " não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Lead com ID " + id + " não encontrado"));
 
         lead.setName(dto.name());
         lead.setEmail(dto.email());
@@ -71,7 +72,7 @@ public class LeadService {
     @Transactional
     public void delete(Long id) {
         if (!leadRepository.existsById(id)) {
-            throw new EntityNotFoundException("Lead com ID " + id + " não encontrado");
+            throw new ResourceNotFoundException("Lead com ID " + id + " não encontrado");
         }
         leadRepository.deleteById(id);
     }
