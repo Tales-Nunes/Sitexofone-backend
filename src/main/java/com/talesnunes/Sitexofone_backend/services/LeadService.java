@@ -6,7 +6,6 @@ import com.talesnunes.Sitexofone_backend.entities.Lead;
 import com.talesnunes.Sitexofone_backend.enums.Status;
 import com.talesnunes.Sitexofone_backend.exceptions.ResourceNotFoundException;
 import com.talesnunes.Sitexofone_backend.repositories.LeadRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
