@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/leads")
+@RequestMapping("/api/leads")
 public class LeadController {
 
     private final LeadService leadService;

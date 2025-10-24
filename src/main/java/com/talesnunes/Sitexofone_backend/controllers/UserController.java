@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;

@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/service-packages")
+@RequestMapping("/api/service-packages")
 public class ServicePackageController {
 
     private final ServicePackageService service;

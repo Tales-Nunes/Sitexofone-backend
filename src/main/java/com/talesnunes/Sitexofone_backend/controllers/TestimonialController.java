@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/testimonials")
+@RequestMapping("/api/testimonials")
 public class TestimonialController {
 
     private final TestimonialService service;
