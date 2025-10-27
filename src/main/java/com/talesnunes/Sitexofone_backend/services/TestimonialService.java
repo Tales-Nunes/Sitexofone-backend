@@ -62,7 +62,6 @@ public class TestimonialService {
         repository.deleteById(id);
     }
 
-    // ✅ Aprovar depoimento
     public TestimonialResponseDTO approve(Long id) {
         Testimonial entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Depoimento com ID " + id + " não encontrado."));
@@ -70,7 +69,6 @@ public class TestimonialService {
         return new TestimonialResponseDTO(repository.save(entity));
     }
 
-    // ❌ Reprovar depoimento
     public TestimonialResponseDTO disapprove(Long id) {
         Testimonial entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Depoimento com ID " + id + " não encontrado."));
